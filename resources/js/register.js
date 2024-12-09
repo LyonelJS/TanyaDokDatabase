@@ -78,3 +78,23 @@ enlist.addEventListener("click",function(event){
         // ..
     });
 })
+
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+    const googleSignInBtn = document.getElementById('signin-google');
+    googleSignInBtn.addEventListener('click', () => {
+      firebase.auth().signInWithPopup(googleProvider)
+        .then((result) => {
+          const user = result.user;
+          const userEmail = user.email;
+          console.log("User's email:", userEmail);
+        })
+        .then(() => {
+          // Signed in 
+          alert("Logging in...")
+          window.location.href="dashboard.html";
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    });
