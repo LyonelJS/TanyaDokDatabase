@@ -43,9 +43,8 @@ getin.addEventListener("click", function(event){
       window.location.href="dashboard.html";
       // ...
     })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+    .catch(() => {
+      const errorMessage = 'Wrong Username or Password';
       alert(errorMessage)
     });
 })
@@ -72,7 +71,6 @@ enlist.addEventListener("click",function(event){
 
     })
     .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage)
         // ..
